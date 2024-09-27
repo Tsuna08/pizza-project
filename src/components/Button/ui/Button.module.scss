@@ -1,16 +1,26 @@
 .button {
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
   font-family: inherit;
+  font-weight: 400;
   cursor: pointer;
   border: none;
+  border-radius: 2rem;
+  color: var(--text-primary-light);
+}
+
+.small {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.large {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
 }
 
 .accent {
-  background-color: var(--button-submit-background);
+  background-color: var(--primary-color);
 
   &:hover {
-    background-color: var(--button-submit-background-hover);
+    background-color: var(--primary-hover-color);
   }
 }

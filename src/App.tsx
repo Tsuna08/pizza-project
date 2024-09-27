@@ -3,7 +3,7 @@ import { Button } from '@/components';
 function App() {
   return (
     <>
-      <Button text='Сохранить' />;
+      <Button text='Сохранить' />
     </>
   );
 }
