@@ -1,10 +1,10 @@
-import { ButtonHTMLAttributes } from 'react';
-import cn from 'classnames';
-import classes from './Button.module.scss';
+import { ButtonHTMLAttributes } from 'react'
+import cn from 'classnames'
+import classes from './Button.module.scss'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
-  size: 'large' | 'small';
+  text: string
+  size?: 'large' | 'small'
 }
 
 export const Button = ({ text, size = 'small', onClick }: ButtonProps) => (
@@ -17,4 +17,4 @@ export const Button = ({ text, size = 'small', onClick }: ButtonProps) => (
   >
     {text}
   </button>
-);
+)
