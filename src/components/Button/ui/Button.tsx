@@ -1,20 +1,20 @@
-import { ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 import classes from './Button.module.scss'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string
+  children: ReactNode
   size?: 'large' | 'small'
 }
 
-export const Button = ({ text, size = 'small', onClick }: ButtonProps) => (
+export const Button = ({ children, size = 'small', className, onClick }: ButtonProps) => (
   <button
     onClick={onClick}
-    className={cn(classes.button, classes.accent, {
+    className={cn(classes.button, classes.accent, className, {
       [classes.large]: size === 'large',
       [classes.small]: size === 'small'
     })}
   >
-    {text}
+    {children}
   </button>
 )

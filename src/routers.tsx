@@ -1,6 +1,6 @@
-import { createBrowserRouter } from 'react-router-dom'
-import { Card, ErrorPage, Menu } from '@/pages'
 import { Layout } from '@/layout/Layout'
+import { Card, ErrorPage, Menu } from '@/pages'
+import { createBrowserRouter } from 'react-router-dom'
 
 export const router = createBrowserRouter([
   {
@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { path: '/', element: <Menu /> },
-      { path: '/card', element: <Card /> }
+      { path: '/cart', element: <Card /> }
     ]
   }
 ])
