@@ -8,7 +8,7 @@ export const Layout = ({}: LayoutProps) => {
   return (
     <div className={classes.layout}>
       <LeftMenu />
-      <main>
+      <main className={classes.content}>
         <Outlet />
       </main>
     </div>

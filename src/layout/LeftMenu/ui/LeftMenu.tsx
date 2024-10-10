@@ -1,5 +1,6 @@
 import { Button } from '@/components'
-import { Link } from 'react-router-dom'
+import cn from 'classnames'
+import { NavLink } from 'react-router-dom'
 import classes from './LeftMenu.module.scss'
 
 interface LeftMenuProps {}
@@ -13,14 +14,20 @@ export const LeftMenu = ({}: LeftMenuProps) => {
         <p className={classes.email}>test@test.com</p>
       </section>
 
-      <Link to='/' className={classes.link}>
+      <NavLink
+        to='/'
+        className={({ isActive }) => cn(classes.link, { [classes.active]: isActive })}
+      >
         <img src='/menu.svg' alt='menu-icon' />
         Menu
-      </Link>
-      <Link to='/cart' className={classes.link}>
+      </NavLink>
+      <NavLink
+        to='/cart'
+        className={({ isActive }) => cn(classes.link, { [classes.active]: isActive })}
+      >
         <img src='/cart.svg' alt='cart-icon' />
         Card
-      </Link>
+      </NavLink>
 
       <Button className={classes.exit}>
         <img src='/turn-off.svg' alt='turn-off-icon' />

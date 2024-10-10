@@ -36,6 +36,14 @@
   gap: 0.5rem;
   text-decoration: none;
   color: var(--text-primary);
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.active {
+  color: var(--primary-color);
 }
 
 .exit {
