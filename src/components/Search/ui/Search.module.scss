@@ -1,0 +1,23 @@
+.wrapper {
+  position: relative;
+}
+
+.input {
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: inherit;
+  padding: 0.875rem 1.875rem 0.875rem 2.1875rem;
+  border: 1px solid #efefef;
+  border-radius: 0.625rem;
+  box-shadow: 15px 20px 45px 0px rgba(233, 233, 233, 0.25);
+  min-width: 12.5rem;
+}
+
+.icon {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  width: 20px;
+}
