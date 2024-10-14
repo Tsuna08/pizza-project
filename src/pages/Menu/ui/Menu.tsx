@@ -1,16 +1,24 @@
-import classes from './Menu.module.scss'
+import classes from './Menu.module.scss';
 
-import { Header, Search } from '@/components'
+import { Card, Header, Search } from '@/components';
 
-interface MenuProps {}
-
-export const Menu = ({}: MenuProps) => {
+export const Menu = () => {
   return (
     <>
-      <div className={classes.header}>
+      <section className={classes.header}>
         <Header>Menu</Header>
         <Search placeholder='Введите блюдо или состав' />
-      </div>
+      </section>
+      <section>
+        <Card
+          id={1}
+          title='Пицца'
+          description='Состав'
+          price={300}
+          rating={4}
+          image='/public/pizza.jpg'
+        />
+      </section>
     </>
-  )
-}
+  );
+};
