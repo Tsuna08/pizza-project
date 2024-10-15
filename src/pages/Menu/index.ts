@@ -1,1 +1,1 @@
-export { Menu } from './ui/Menu'
+export { default as Menu } from './ui/Menu';

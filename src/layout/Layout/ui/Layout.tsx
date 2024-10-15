@@ -1,10 +1,9 @@
-import { LeftMenu } from '@/layout/LeftMenu'
-import { Outlet } from 'react-router-dom'
-import classes from './Layout.module.scss'
+import { LeftMenu } from '@/layout/LeftMenu';
+import { Outlet } from 'react-router-dom';
 
-interface LayoutProps {}
+import classes from './Layout.module.scss';
 
-export const Layout = ({}: LayoutProps) => {
+export const Layout = () => {
   return (
     <div className={classes.layout}>
       <LeftMenu />
@@ -12,5 +11,5 @@ export const Layout = ({}: LayoutProps) => {
         <Outlet />
       </main>
     </div>
-  )
-}
+  );
+};

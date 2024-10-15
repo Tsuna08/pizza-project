@@ -1,7 +1,5 @@
-import classes from './ErrorPage.module.scss'
+export const ErrorPage = () => {
+  return <p>Ошибка</p>;
+};
 
-interface ErrorPageProps {}
-
-export const ErrorPage = ({}: ErrorPageProps) => {
-  return <></>
-}
+export default ErrorPage;

@@ -10,9 +10,9 @@ interface CardProps {
   rating: number;
 }
 
-export const Card = ({ price, rating, title, description, image }: CardProps) => {
+export const Card = ({ id, price, rating, title, description, image }: CardProps) => {
   return (
-    <Link to='/' className={classes.link}>
+    <Link to={`/product/${id}`} className={classes.link}>
       <section className={classes.card}>
         <div className={classes.image} style={{ backgroundImage: `url('${image}')` }}>
           <div className={classes.price}>

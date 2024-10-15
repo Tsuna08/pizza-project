@@ -1,5 +1,5 @@
-interface CartProps {}
-
-export const Cart = ({}: CartProps) => {
+export const Cart = () => {
   return <>Cart</>;
 };
+
+export default Cart;

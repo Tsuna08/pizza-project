@@ -1,11 +1,10 @@
-import { Button } from '@/components'
-import cn from 'classnames'
-import { NavLink } from 'react-router-dom'
-import classes from './LeftMenu.module.scss'
+import { Button } from '@/components';
+import cn from 'classnames';
+import { NavLink } from 'react-router-dom';
 
-interface LeftMenuProps {}
+import classes from './LeftMenu.module.scss';
 
-export const LeftMenu = ({}: LeftMenuProps) => {
+export const LeftMenu = () => {
   return (
     <nav className={classes.navBar}>
       <section className={classes.user}>
@@ -19,14 +18,14 @@ export const LeftMenu = ({}: LeftMenuProps) => {
         className={({ isActive }) => cn(classes.link, { [classes.active]: isActive })}
       >
         <img src='/menu.svg' alt='menu-icon' />
-        Menu
+        Меню
       </NavLink>
       <NavLink
         to='/cart'
         className={({ isActive }) => cn(classes.link, { [classes.active]: isActive })}
       >
         <img src='/cart.svg' alt='cart-icon' />
-        Card
+        Корзина
       </NavLink>
 
       <Button className={classes.exit}>
@@ -34,5 +33,5 @@ export const LeftMenu = ({}: LeftMenuProps) => {
         Выход
       </Button>
     </nav>
-  )
-}
+  );
+};
