@@ -1,13 +1,17 @@
 import axios, { AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
+import { generatePath, useNavigate } from 'react-router-dom';
 
 import { Card, Header, Loader, Search } from '@/components';
 import { PREFIX } from '@/helpers/api';
+import { routers } from '@/routers';
 import { Product } from '@/types/products';
 
 import classes from './Menu.module.scss';
 
 export const Menu = () => {
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -45,12 +49,13 @@ export const Menu = () => {
         <section className={classes.cardList}>
           {products.map((item) => (
             <Card
-              id={item.id}
+              key={item.id}
               title={item.name}
               description={item.ingredients.join(', ')}
               price={item.price}
               rating={item.rating}
               image={item.image}
+              onClick={() => navigate(generatePath(routers.product, { id: item.id }))}
             />
           ))}
         </section>

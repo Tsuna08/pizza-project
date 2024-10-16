@@ -16,7 +16,12 @@
 body {
   font-family: var(--font-family);
   margin: 0;
-  & > #root {
-    height: 100vh;
-  }
+}
+
+body > #root {
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
 }
