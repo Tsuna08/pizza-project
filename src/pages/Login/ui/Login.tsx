@@ -11,7 +11,7 @@ export const Login = () => {
       <form className={classes.form}>
         <section className={classes.field}>
           <label htmlFor='email'>Email</label>
-          <Input id='email' placeholder='Введите email' placeholder='Введите email' />
+          <Input id='email' placeholder='Введите email' />
         </section>
         <section className={classes.field}>
           <label htmlFor='password'>Пароль</label>

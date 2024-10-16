@@ -1,10 +1,11 @@
+import axios from 'axios';
+import { lazy, Suspense } from 'react';
+import { createBrowserRouter } from 'react-router-dom';
+
 import { Loader } from '@/components';
 import { PREFIX } from '@/helpers/api';
 import { AuthLayout } from '@/layout/AuthLayout';
 import { Layout } from '@/layout/Layout';
-import axios from 'axios';
-import { lazy, Suspense } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
 
 const ErrorPage = lazy(() => import('@/pages/ErrorPage/ui/ErrorPage'));
 const Menu = lazy(() => import('@/pages/Menu/ui/Menu'));

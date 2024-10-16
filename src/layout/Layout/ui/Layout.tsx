@@ -1,5 +1,6 @@
-import { LeftMenu } from '@/layout/LeftMenu';
 import { Outlet } from 'react-router-dom';
+
+import { LeftMenu } from '@/layout/LeftMenu';
 
 import classes from './Layout.module.scss';
 

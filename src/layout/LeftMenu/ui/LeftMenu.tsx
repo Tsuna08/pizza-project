@@ -1,6 +1,7 @@
-import { Button } from '@/components';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
+
+import { Button } from '@/components';
 
 import classes from './LeftMenu.module.scss';
 

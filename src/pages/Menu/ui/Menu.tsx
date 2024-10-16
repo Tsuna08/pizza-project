@@ -1,8 +1,9 @@
+import axios, { AxiosError } from 'axios';
+import { useEffect, useState } from 'react';
+
 import { Card, Header, Loader, Search } from '@/components';
 import { PREFIX } from '@/helpers/api';
 import { Product } from '@/types/products';
-import axios, { AxiosError } from 'axios';
-import { useEffect, useState } from 'react';
 
 import classes from './Menu.module.scss';
 

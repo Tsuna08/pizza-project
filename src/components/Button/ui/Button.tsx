@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
+
 import classes from './Button.module.scss'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

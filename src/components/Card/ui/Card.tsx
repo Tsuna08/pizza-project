@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import classes from './Card.module.scss';
 
 interface CardProps {
