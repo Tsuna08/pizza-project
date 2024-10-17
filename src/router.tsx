@@ -39,7 +39,12 @@ export const router = createBrowserRouter([
   },
   {
     path: routers.auth,
-    element: <AuthLayout />,
+    element: (
+      <Suspense fallback={<Loader />}>
+        <AuthLayout />
+      </Suspense>
+    ),
+    errorElement: <ErrorPage />,
     children: [
       { path: routers.login, element: <Login /> },
       { path: routers.register, element: <Register /> }
