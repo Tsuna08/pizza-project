@@ -4,6 +4,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { Loader } from '@/components';
 import { PREFIX } from '@/helpers/api';
+import { RequireAuth } from '@/helpers/requireAuth';
 import { AuthLayout } from '@/layout/AuthLayout';
 import { Layout } from '@/layout/Layout';
 import { routers } from '@/routers';
@@ -20,7 +21,9 @@ export const router = createBrowserRouter([
     path: routers.root,
     element: (
       <Suspense fallback={<Loader />}>
-        <Layout />
+        <RequireAuth>
+          <Layout />
+        </RequireAuth>
       </Suspense>
     ),
     errorElement: <ErrorPage />,

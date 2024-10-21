@@ -1,18 +1,26 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import axios, { AxiosError } from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Button, Header, Input } from '@/components';
-import { PREFIX } from '@/helpers/api';
 import { routers } from '@/routers';
+import { AppDispatch, RootState } from '@/store/store';
+import { login, userActions } from '@/store/user.slice';
 
 import { defaultValuesSurvey, LoginForms, prepareFormValues, schemaNewSurvey } from '../lib/utils';
 import classes from './Login.module.scss';
 
 export const Login = () => {
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { jwt, loginErrorMessage } = useSelector((state: RootState) => state.user);
+
+  useEffect(() => {
+    if (jwt) navigate(routers.root);
+  }, [jwt, navigate]);
 
   const {
     register,
@@ -27,24 +35,17 @@ export const Login = () => {
   });
 
   const onSubmit: SubmitHandler<LoginForms> = async (date) => {
-    prepareFormValues(date);
-    await axios
-      .post(`${PREFIX}/auth/login`, { ...prepareFormValues(date) })
-      .then((response) => console.log('response: ', response))
-      .catch((error) => {
-        if (error instanceof AxiosError) {
-          setError(error.response?.data?.message);
-        }
-      });
+    dispatch(userActions.clearErrorMessage());
+    dispatch(login(prepareFormValues(date)));
   };
 
   const [emailField, passwordField] = watch(['email', 'password']);
 
   useEffect(() => {
     if (emailField || passwordField) {
-      setError('');
+      dispatch(userActions.clearErrorMessage());
     }
-  }, [emailField, passwordField]);
+  }, [emailField, passwordField, dispatch]);
 
   return (
     <>
@@ -77,7 +78,7 @@ export const Login = () => {
           )}
         </section>
 
-        {error && <span className={classes.errorMessage}>{error}</span>}
+        {loginErrorMessage && <span className={classes.errorMessage}>{loginErrorMessage}</span>}
         <Button type='submit' size='large'>
           Вход
         </Button>

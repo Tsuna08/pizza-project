@@ -1,11 +1,23 @@
 import cn from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components';
+import { routers } from '@/routers';
+import { AppDispatch } from '@/store/store';
+import { userActions } from '@/store/user.slice';
 
 import classes from './LeftMenu.module.scss';
 
 export const LeftMenu = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+
+  const logout = () => {
+    dispatch(userActions.logout());
+    navigate(`${routers.auth}/${routers.login}`);
+  };
+
   return (
     <nav className={classes.navBar}>
       <section className={classes.user}>
@@ -29,7 +41,7 @@ export const LeftMenu = () => {
         Корзина
       </NavLink>
 
-      <Button className={classes.exit}>
+      <Button className={classes.exit} onClick={logout}>
         <img src='/turn-off.svg' alt='turn-off-icon' />
         Выход
       </Button>
