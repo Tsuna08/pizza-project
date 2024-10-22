@@ -1,17 +1,23 @@
 import cn from 'classnames';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components';
 import { routers } from '@/routers';
-import { AppDispatch } from '@/store/store';
-import { userActions } from '@/store/user.slice';
+import { AppDispatch, RootState } from '@/store/store';
+import { getUserProfile, userActions } from '@/store/user.slice';
 
 import classes from './LeftMenu.module.scss';
 
 export const LeftMenu = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
+  const userProfile = useSelector((state: RootState) => state.user.profile);
+
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, [dispatch]);
 
   const logout = () => {
     dispatch(userActions.logout());
@@ -22,8 +28,8 @@ export const LeftMenu = () => {
     <nav className={classes.navBar}>
       <section className={classes.user}>
         <img src='/avatar.svg' alt='avatar' />
-        <p className={classes.name}>Тестов Тест</p>
-        <p className={classes.email}>test@test.com</p>
+        <p className={classes.name}>{userProfile?.name}</p>
+        <p className={classes.email}>{userProfile?.email}</p>
       </section>
 
       <NavLink
