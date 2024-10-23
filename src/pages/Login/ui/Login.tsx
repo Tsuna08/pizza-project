@@ -35,7 +35,7 @@ export const Login = () => {
   });
 
   const onSubmit: SubmitHandler<LoginForms> = async (date) => {
-    dispatch(userActions.clearErrorMessage());
+    dispatch(userActions.clearLoginMessage());
     dispatch(login(prepareFormValues(date)));
   };
 
@@ -43,7 +43,7 @@ export const Login = () => {
 
   useEffect(() => {
     if (emailField || passwordField) {
-      dispatch(userActions.clearErrorMessage());
+      dispatch(userActions.clearLoginMessage());
     }
   }, [emailField, passwordField, dispatch]);
 

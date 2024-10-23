@@ -51,5 +51,5 @@ export default tseslint.config({
 
 Authorization
 
-login: a@gmail.com
-password: 123
+login: a@gmail.com/tesvov@gmail.com
+password: 123/1234
