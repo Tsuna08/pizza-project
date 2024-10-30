@@ -52,3 +52,15 @@
   gap: 9px;
   margin-top: auto;
 }
+
+.counter {
+  background: var(--primary-color);
+  color: var(--text-primary-light);
+  font-size: 0.75rem;
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

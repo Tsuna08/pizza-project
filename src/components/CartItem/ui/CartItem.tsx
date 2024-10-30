@@ -1,8 +1,8 @@
 import { MouseEvent } from 'react';
 
-import classes from './Card.module.scss';
+import classes from './CartItem.module.scss';
 
-interface CardProps {
+interface CartItemProps {
   id: number;
   title: string;
   description: string;
@@ -13,7 +13,7 @@ interface CardProps {
   onAdd: (event: MouseEvent<HTMLImageElement | MouseEvent>, id: number) => void;
 }
 
-export const Card = ({
+export const CartItem = ({
   id,
   price,
   rating,
@@ -22,7 +22,7 @@ export const Card = ({
   image,
   onClick,
   onAdd
-}: CardProps) => {
+}: CartItemProps) => {
   return (
     <section className={classes.card} onClick={onClick}>
       <div className={classes.image} style={{ backgroundImage: `url('${image}')` }}>

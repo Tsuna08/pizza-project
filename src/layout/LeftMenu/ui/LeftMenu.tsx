@@ -14,6 +14,7 @@ export const LeftMenu = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const userProfile = useSelector((state: RootState) => state.user.profile);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
   useEffect(() => {
     dispatch(getUserProfile());
@@ -44,7 +45,7 @@ export const LeftMenu = () => {
         className={({ isActive }) => cn(classes.link, { [classes.active]: isActive })}
       >
         <img src='/cart.svg' alt='cart-icon' />
-        Корзина
+        Корзина {cartItems.length > 0 && <div className={classes.counter}>{cartItems.length}</div>}
       </NavLink>
 
       <Button className={classes.exit} onClick={logout}>
