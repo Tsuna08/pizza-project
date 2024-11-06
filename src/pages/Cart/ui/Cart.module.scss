@@ -1,11 +1,6 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
 .cardList {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 1rem;
+  margin-top: 1rem;
 }

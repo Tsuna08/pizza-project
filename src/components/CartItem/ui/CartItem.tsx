@@ -1,47 +1,46 @@
-import { MouseEvent } from 'react';
-
 import classes from './CartItem.module.scss';
 
 interface CartItemProps {
   id: number;
-  title: string;
-  description: string;
+  name: string;
   image: string;
   price: number;
-  rating: number;
-  onClick: () => void;
-  onAdd: (event: MouseEvent<HTMLImageElement | MouseEvent>, id: number) => void;
+  count: number;
+  onClick?: () => void;
+  onAdd?: () => void;
+  onRemove?: () => void;
 }
 
 export const CartItem = ({
   id,
-  price,
-  rating,
-  title,
-  description,
+  name,
   image,
+  price,
+  count,
   onClick,
-  onAdd
+  onAdd,
+  onRemove
 }: CartItemProps) => {
   return (
-    <section className={classes.card} onClick={onClick}>
-      <div className={classes.image} style={{ backgroundImage: `url('${image}')` }}>
+    <section className={classes.item} onClick={onClick} key={id}>
+      <div className={classes.image} style={{ backgroundImage: `url('${image}')` }} />
+      <article className={classes.description}>
+        <div className={classes.name}>{name}</div>
         <div className={classes.price}>
           {price} <span className={classes.currency}>₽</span>
         </div>
-        <button className={classes.addButton}>
-          <img src='/bucket.svg' alt='Добавить в корзину' onClick={(event) => onAdd(event, id)} />
+      </article>
+      <article className={classes.actions}>
+        <button className={classes.button} onClick={onRemove}>
+          <img src='/bucket.svg' alt='Добавить в корзину' height='15px' />
         </button>
-        <div>
-          <div className={classes.rating}>
-            {rating} <img src='/star.svg' alt='Звезда' height='15px' />
-          </div>
-        </div>
-      </div>
-
-      <article className={classes.descriptionBlock}>
-        <div className={classes.title}>{title}</div>
-        <div className={classes.description}>{description}</div>
+        <span>{count}</span>
+        <button className={classes.button} onClick={onAdd}>
+          <img src='/star.svg' alt='Удалить из корзины' height='15px' />
+        </button>
+        <button className={classes.button} onClick={onRemove}>
+          <img src='/star.svg' alt='Удалить всё' height='15px' />
+        </button>
       </article>
     </section>
   );
