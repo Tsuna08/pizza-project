@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { cartSlice } from './cart.slice';
+import { CART_KEY_STATE, cartSlice } from './cart.slice';
 import { saveState } from './storage';
 import { USER_KEY_STATE, userSlice } from './user.slice';
 
@@ -13,6 +13,7 @@ export const store = configureStore({
 
 store.subscribe(() => {
   saveState({ jwt: store.getState().user.jwt }, USER_KEY_STATE);
+  saveState(store.getState().cart, CART_KEY_STATE);
 });
 
 export type RootState = ReturnType<typeof store.getState>;

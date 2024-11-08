@@ -6,9 +6,10 @@ interface CartItemProps {
   image: string;
   price: number;
   count: number;
-  onClick?: () => void;
-  onAdd?: () => void;
-  onRemove?: () => void;
+  onClick: () => void;
+  onRemove: (id: number) => void;
+  onAdd: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
 export const CartItem = ({
@@ -18,8 +19,9 @@ export const CartItem = ({
   price,
   count,
   onClick,
+  onRemove,
   onAdd,
-  onRemove
+  onDelete
 }: CartItemProps) => {
   return (
     <section className={classes.item} onClick={onClick} key={id}>
@@ -31,15 +33,15 @@ export const CartItem = ({
         </div>
       </article>
       <article className={classes.actions}>
-        <button className={classes.button} onClick={onRemove}>
-          <img src='/bucket.svg' alt='Добавить в корзину' height='15px' />
+        <button className={classes.button} onClick={() => onRemove(id)}>
+          <img src='/minus.svg' alt='Удалить из корзины' height='20px' />
         </button>
         <span>{count}</span>
-        <button className={classes.button} onClick={onAdd}>
-          <img src='/star.svg' alt='Удалить из корзины' height='15px' />
+        <button className={classes.button} onClick={() => onAdd(id)}>
+          <img src='/plus.svg' alt='Добавить в корзину' height='20px' />
         </button>
-        <button className={classes.button} onClick={onRemove}>
-          <img src='/star.svg' alt='Удалить всё' height='15px' />
+        <button className={classes.button} onClick={() => onDelete(id)}>
+          <img src='/cross.svg' alt='Удалить всё' height='10px' />
         </button>
       </article>
     </section>
