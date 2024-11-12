@@ -15,6 +15,7 @@ const Cart = lazy(() => import('@/pages/Cart/ui/Cart'));
 const Product = lazy(() => import('@/pages/Product/ui/Product'));
 const Login = lazy(() => import('@/pages/Login/ui/Login'));
 const Register = lazy(() => import('@/pages/Register/ui/Register'));
+const SuccessOrder = lazy(() => import('@/pages/SuccessOrder/ui/SuccessOrder'));
 
 export const router = createBrowserRouter([
   {
@@ -37,7 +38,8 @@ export const router = createBrowserRouter([
           const { data } = await axios.get(`${PREFIX}/products/${params.id}`);
           return data;
         }
-      }
+      },
+      { path: routers.successOrder, element: <SuccessOrder /> }
     ]
   },
   {
