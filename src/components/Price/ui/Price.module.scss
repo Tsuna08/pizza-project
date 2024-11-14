@@ -1,0 +1,18 @@
+.box {
+  gap: 0.1rem;
+}
+
+.price,
+.currency {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.price {
+  font-weight: 500;
+}
+
+.currency {
+  font-weight: 400;
+}

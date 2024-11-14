@@ -1,0 +1,28 @@
+.section {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.image {
+  width: 400px;
+  border-radius: 1.25rem;
+  box-shadow: 0px 5px 20px 1px rgba(48, 44, 44, 0.2);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 80%;
+  max-width: 325px;
+}
+
+.ingredients {
+  flex-direction: column;
+  margin: 0.5rem 0 0 1rem;
+
+  & > div::first-letter {
+    text-transform: uppercase;
+  }
+}

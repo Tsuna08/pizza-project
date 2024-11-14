@@ -1,5 +1,7 @@
 import { MouseEvent } from 'react';
 
+import { Rating } from '@/components/Rating';
+
 import classes from './Card.module.scss';
 
 interface CardProps {
@@ -32,10 +34,8 @@ export const Card = ({
         <button className={classes.addButton}>
           <img src='/bucket.svg' alt='Добавить в корзину' onClick={(event) => onAdd(event, id)} />
         </button>
-        <div>
-          <div className={classes.rating}>
-            {rating} <img src='/star.svg' alt='Звезда' height='15px' />
-          </div>
+        <div className={classes.rating}>
+          <Rating rating={rating} />
         </div>
       </div>
 

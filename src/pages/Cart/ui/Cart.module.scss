@@ -13,23 +13,3 @@
   padding-top: 1rem;
   max-width: 32rem;
 }
-
-.price {
-  display: flex;
-  justify-content: space-between;
-
-  h4,
-  p {
-    color: var(--text-primary);
-    font-weight: 600;
-    margin: 0;
-  }
-
-  h4 {
-    font-size: 1rem;
-  }
-
-  p {
-    font-size: 0.875rem;
-  }
-}

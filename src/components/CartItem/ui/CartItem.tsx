@@ -6,7 +6,7 @@ interface CartItemProps {
   image: string;
   price: number;
   count: number;
-  onClick: () => void;
+  onClick: (id: number) => void;
   onRemove: (id: number) => void;
   onAdd: (id: number) => void;
   onDelete: (id: number) => void;
@@ -24,9 +24,13 @@ export const CartItem = ({
   onDelete
 }: CartItemProps) => {
   return (
-    <section className={classes.item} onClick={onClick} key={id}>
-      <div className={classes.image} style={{ backgroundImage: `url('${image}')` }} />
-      <article className={classes.description}>
+    <section className={classes.item} key={id}>
+      <div
+        className={classes.image}
+        style={{ backgroundImage: `url('${image}')` }}
+        onClick={() => onClick(id)}
+      />
+      <article className={classes.description} onClick={() => onClick(id)}>
         <div className={classes.name}>{name}</div>
         <div className={classes.price}>
           {price} <span className={classes.currency}>₽</span>

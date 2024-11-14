@@ -1,7 +1,10 @@
+export { Box } from './Box';
 export { Button } from './Button';
 export { Card } from './Card';
 export { CartItem } from './CartItem';
 export { Header } from './Header';
 export { Input } from './Input';
 export { Loader } from './Loader';
+export { Price } from './Price';
+export { Rating } from './Rating';
 export { Search } from './Search';

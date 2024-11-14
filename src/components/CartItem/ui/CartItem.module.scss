@@ -4,6 +4,11 @@
   max-width: 32rem;
 }
 
+.image:hover,
+.description:hover {
+  cursor: pointer;
+}
+
 .image {
   width: 5.125rem;
   height: 5.125rem;

@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { generatePath, useNavigate } from 'react-router-dom';
 
-import { Button, CartItem, Header, Loader } from '@/components';
+import { Box, Button, CartItem, Header, Loader, Price } from '@/components';
 import { PREFIX } from '@/helpers/api';
 import { DELIVERY_PRICE } from '@/helpers/constants';
 import { routers } from '@/routers';
@@ -47,7 +47,7 @@ export const Cart = () => {
     loadAllCartItems();
   }, []);
 
-  const handleClick = () => {};
+  const handleClick = (id: number) => navigate(generatePath(routers.product, { id: id }));
   const handleRemove = (id: number) => dispatch(cartActions.remove(id));
   const handleAdd = (id: number) => dispatch(cartActions.add(id));
   const handleDelete = (id: number) => dispatch(cartActions.delete(id));
@@ -104,18 +104,18 @@ export const Cart = () => {
               })}
 
               <section className={classes.total}>
-                <div className={classes.price}>
+                <Box>
                   <h4>Итог</h4>
-                  <p>{total} ₽</p>
-                </div>
-                <div className={classes.price}>
+                  <Price price={total} />
+                </Box>
+                <Box>
                   <h4>Доставка</h4>
-                  <p>{DELIVERY_PRICE} ₽</p>
-                </div>
-                <div className={classes.price}>
+                  <Price price={DELIVERY_PRICE} />
+                </Box>
+                <Box>
                   <h4>К оплате</h4>
-                  <p>{total + DELIVERY_PRICE} ₽</p>
-                </div>
+                  <Price price={total + DELIVERY_PRICE} />
+                </Box>
               </section>
               <section className={classes.total}>
                 <Button type='submit' onClick={handleOrder}>

@@ -1,0 +1,14 @@
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+  height: fit-content;
+  background: var(--light-background);
+  color: #111719;
+  box-shadow: 0px 5px 20px 1px rgba(79, 79, 79, 0.2);
+  padding: 3px 10px;
+  border-radius: 1.25rem;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+}
