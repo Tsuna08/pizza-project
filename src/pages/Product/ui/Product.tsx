@@ -1,16 +1,34 @@
-import { useLoaderData } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
-import { Box, Header, Price, Rating } from '@/components';
+import { Box, Button, Header, Price, Rating } from '@/components';
+import { routers } from '@/routers';
+import { cartActions } from '@/store/cart.slice';
+import { AppDispatch } from '@/store/store';
 import { Product as ProductType } from '@/types/products';
 
 import classes from './Product.module.scss';
 
 export const Product = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+
   const data = useLoaderData() as ProductType;
+
+  const handleAdd = () => {
+    dispatch(cartActions.add(data.id));
+    navigate(routers.cart);
+  };
 
   return (
     <>
-      <Header>{data.name}</Header>
+      <section className={classes.header}>
+        <Header>{data.name}</Header>
+        <Button className={classes.buttonIcon} onClick={handleAdd}>
+          <img src='/bucket.svg' alt='Добавить в корзину' />
+          Добавить в корзину
+        </Button>
+      </section>
       <section className={classes.section}>
         <img src={data.image} alt='Пицца' className={classes.image} />
         <section className={classes.description}>

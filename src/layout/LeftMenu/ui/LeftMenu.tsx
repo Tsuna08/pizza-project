@@ -34,14 +34,14 @@ export const LeftMenu = () => {
       </section>
 
       <NavLink
-        to='/'
+        to={routers.root}
         className={({ isActive }) => cn(classes.link, { [classes.active]: isActive })}
       >
         <img src='/menu.svg' alt='menu-icon' />
         Меню
       </NavLink>
       <NavLink
-        to='/cart'
+        to={routers.cart}
         className={({ isActive }) => cn(classes.link, { [classes.active]: isActive })}
       >
         <img src='/cart.svg' alt='cart-icon' />
