@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components';
 import { routers } from '@/routers';
+import { cartActions } from '@/store/cart.slice';
 import { AppDispatch, RootState } from '@/store/store';
 import { getUserProfile, userActions } from '@/store/user.slice';
 
@@ -22,6 +23,7 @@ export const LeftMenu = () => {
 
   const logout = () => {
     dispatch(userActions.logout());
+    dispatch(cartActions.clean());
     navigate(`${routers.auth}/${routers.login}`);
   };
 
