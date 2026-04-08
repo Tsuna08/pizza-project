@@ -2,6 +2,10 @@
 
 A pizza ordering application built with Vite, React, and TypeScript.
 
+## Preview
+
+![Pizza Project Preview](public/project.png)
+
 ## Technologies
 
 - **React**
@@ -90,7 +94,3 @@ yarn lint
     - **Password**: `123`
   - **Login 2**: `tesvov@gmail.com`
     - **Password**: `1234`
-
-## Preview
-
-![Pizza Project Preview](public/project.png)
