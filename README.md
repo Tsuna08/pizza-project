@@ -1,55 +1,96 @@
-# React + TypeScript + Vite
+# Pizza Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A pizza ordering application built with Vite, React, and TypeScript.
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**
+- **TypeScript**
+- **SCSS**
+- **Axios**
+- **React-DOM**
+- **React Hook Form**
+- **React-Redux**
+- **React Router DOM**
+- **Yup**
+- **Vite**
 
-## Expanding the ESLint configuration
+## Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname
-    }
-  }
-});
+```
+src/
+├── components/             # Reusable UI components
+│   ├── Box/               # Box component for layout purposes
+│   ├── Button/            # Button component with styles
+│   ├── Card/              # Card component for displaying grouped content
+│   ├── CartItem/          # Component for individual cart items
+│   ├── Header/            # Header component for navigation
+│   ├── Input/             # Input fields with validation
+│   ├── Loader/            # Loading spinner component
+│   ├── Price/             # Component for displaying prices
+│   ├── Rating/            # Component for showing ratings
+│   └── Search/            # Search bar component
+│
+├── helpers/                # Utility functions and constants
+│   ├── api.ts             # API configuration and requests
+│   ├── constants.ts       # Application-wide constants
+│   └── requireAuth.tsx    # Higher-order component for route protection
+│
+├── layout/                 # Layout components
+│   ├── AuthLayout/        # Layout for authentication pages
+│   ├── Layout/            # Main layout for the application
+│   └── LeftMenu/          # Sidebar menu layout
+│
+├── pages/                  # Application pages
+│   ├── Cart/              # Cart page for managing orders
+│   ├── ErrorPage/         # Error page for handling 404 or other errors
+│   ├── Login/             # Login page with form validation
+│   ├── Menu/              # Menu page displaying available products
+│   ├── Product/           # Product details page
+│   ├── Register/          # Registration page with form validation
+│   └── SuccessOrder/      # Page displayed after successful order placement
+│
+├── store/                  # State management using Redux Toolkit
+│   ├── cart.slice.ts      # Slice for managing cart state
+│   ├── user.slice.ts      # Slice for managing user state
+│   ├── storage.ts         # Utility for local storage interactions
+│   └── store.ts           # Redux store configuration
+│
+├── types/                  # TypeScript types and interfaces
+│   ├── cart.ts            # Types for cart-related data
+│   ├── products.ts        # Types for product-related data
+│   └── user.ts            # Types for user-related data
+│
+└── main.tsx                # Application entry point
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Development
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
+```bash
+# Install dependencies
+yarn install
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules
-  }
-});
+# Start development server
+yarn dev
+
+# Build the project
+yarn build
+
+# Run linter
+yarn lint
+
+# Run prettier
+yarn lint
 ```
 
-Authorization
+## Login Parameters
 
-login: a@gmail.com/tesvov@gmail.com
-password: 123/1234
+- **Credentials**:
+  - **Login 1**: `a@gmail.com`
+    - **Password**: `123`
+  - **Login 2**: `tesvov@gmail.com`
+    - **Password**: `1234`
+
+## Preview
+
+![Pizza Project Preview](public/project.png)
